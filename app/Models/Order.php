@@ -12,6 +12,12 @@ class Order extends Model
         return $this->belongsToMany(Product::class)->withPivot('count')->withTimestamps();
     }
 
+    /* проверяет помечен ли заказ как оформленый */
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
+
     /* общая цена товаров */
     public function getFullPrice(){
         $sum = 0;
@@ -22,10 +28,11 @@ class Order extends Model
     }
 
     /* оформление заказа */
-    public function saveOrder($name, $phone){
+    public function saveOrder($name, $phone, $adres){
         if ($this->status == 0) {
             $this->name = $name;
             $this->phone = $phone;
+            $this->adres = $adres;
             $this->status = 1;
             $this->save();
             session()->forget('orderId');

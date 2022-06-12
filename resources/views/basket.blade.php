@@ -21,7 +21,7 @@
             <tr>
                     <td>
                         <a href="{{ route('product', [$product->category->code, $product->code]) }}">
-                            <img height="56px" src="{{ asset('img/cactus.png') }}" alt="basket_prodyct">
+                            <img height="56px" src="{{ Storage::url($product->image) }}" alt="basket_prodyct">
                             {{ $product->name }}
                         </a>
                     </td>

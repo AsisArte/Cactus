@@ -3,6 +3,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="Кактусы, купить кактус, суккуленты, купить суккуленты ">
+        <meta name="description" content="Cactus hub">
+
 
         <title>Интернет Магазин: @yield('title')</title>
 
@@ -20,12 +23,9 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ route('index') }}">Все товары</a></li>
-                        <li><a href="{{ route('categories') }}">Категории</a></li>
-                        <li><a href="{{ route('basket') }}">В корзину</a></li>
-                        @if(Auth::user('admin'))
-                        <li><a href="{{ route('orders') }}">Админка</a></li>
-                        @endif
+                        <li @routeactive('index')><a href="{{ route('index') }}">Все товары</a></li>
+                        <li @routeactive('categor*')><a href="{{ route('categorys') }}">Категории</a></li>
+                        <li @routeactive('basket*')><a href="{{ route('basket') }}">В корзину</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @guest
@@ -34,6 +34,9 @@
                             <li><a href="{{ route('register') }}">Регистрация</a></li>
                         @endif
                         @else
+                            @if(Auth::user()->name == 'admin')
+                            <li><a href="{{ route('orders') }}">Админка</a></li>
+                            @endif
                             <li><a href="{{ route('dashboard') }}">Личный кабинет</a></li>
                         @endif   
                     </ul>

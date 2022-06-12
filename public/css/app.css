@@ -695,7 +695,7 @@ select {
 .-mr-2 {
   margin-right: -0.5rem;
 }
-.mr-2 {
+.-2mr {
   margin-right: 0.5rem;
 }
 .mt-8 {

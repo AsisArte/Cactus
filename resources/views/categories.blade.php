@@ -11,7 +11,7 @@
             <div class="thumbnail">
                 <div class="panel">
                     <a href="{{ route('category', $category->code) }}">
-                    <img src="{{ asset('img/cactus_2.png') }}" alt="categories">
+                    <img src="{{ Storage::url($category->image) }}" alt="categories">
                         <h2>{{ $category->name }}</h2>
                     </a>
                     <p>{{ $category->content }}</p>
@@ -19,7 +19,5 @@
             </div>
         </div>
         @endforeach
-       
-
 
 @endsection

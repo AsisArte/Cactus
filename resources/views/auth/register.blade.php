@@ -43,6 +43,13 @@
                                 name="password_confirmation" required />
             </div>
 
+            <!-- Soglasie -->
+            <div class="mt-4 in-line">
+                <x-label class="mr-4" for="agreed" :value="__('Согласие на обработку персональных данных')" />
+
+                <x-input id="agreed" class="block mt-1 w" type="checkbox" name="agreed" required />
+            </div>
+
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Уже зарегистрированы?') }}

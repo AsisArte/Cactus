@@ -13,24 +13,22 @@ class BasketController extends Controller
     public function basket() {
         /* проверка корзины на наличие товаров */
         $orderId = session('orderId');
-        if (!is_null($orderId)){
-            $order = Order::findOrFail($orderId);
-            if ($order->products->count() == 0) {
-                session()->flash('warning', 'Ваш корзина пуста!');
-                return redirect()->route('index');
-            }
+        if (is_null($orderId)){
+            session()->flash('warning', 'Ваша корзина пуста!');
+            return redirect()->route('index');
         }
+        $order = Order::find($orderId);
         return view('basket', compact('order'));
     }
 
-    /* оформлени заказа */
+    /* оформление заказа */
     public function basketConfirm(Request $request) {
         $orderId = session('orderId');
         if (is_null($orderId)){
             return redirect()->route('index');
         }
         $order = Order::find($orderId);
-        $success = $order->saveOrder($request->name, $request->phone);
+        $success = $order->saveOrder($request->name, $request->phone, $request->adres);
 
         if ($success) {
             session()->flash('success', 'Ваш заказ принят в обработку!');

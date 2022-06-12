@@ -14,7 +14,7 @@
 
                     <div class="container">
                         <div class="form-group">
-                            <label for="name" class="control-label col-lg-offset-3 col-lg-2">Имя* </label>
+                            <label for="name" class="control-label col-lg-offset-3 col-lg-2">ФИО/Имя* </label>
                             <div class="col-lg-4">
                                 <input type="text" name="name" id="name" value="" class="form-control" required>
                             </div>
@@ -25,6 +25,14 @@
                             <label for="phone" class="control-label col-lg-offset-3 col-lg-2">Номер телефона* </label>
                             <div class="col-lg-4">
                                 <input type="text" name="phone" id="phone" value="" class="form-control" required>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group">
+                            <label for="adres" class="control-label col-lg-offset-3 col-lg-2">Адрес доставки* </label>
+                            <div class="col-lg-4">
+                                <input type="text" name="adres" id="adres" value="" class="form-control" required>
                             </div>
                         </div>
                         <br>
